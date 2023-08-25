@@ -6,6 +6,7 @@ import "./index.css";
 import CreatePage from "./pages/CreatePage";
 import EditPage from "./pages/EditPage";
 import HomePage from "./pages/HomePage";
+export const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const router = createBrowserRouter([
   {

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { VITE_BACKEND_URL } from "../main";
 
 const EditPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +14,7 @@ const EditPage = () => {
   });
   const navigate = useNavigate();
   let { id } = useParams();
-  const url = `http://localhost:3000/api/products/${id}`;
+  const url = `${VITE_BACKEND_URL}/api/products/${id}`;
 
   const getProduct = async () => {
     setIsLoading(true);
@@ -50,7 +51,7 @@ const EditPage = () => {
     e.preventDefault();
     try {
       setIsLoading(true);
-      await axios.put(`http://localhost:3000/api/products/${id}`, product);
+      await axios.put(`${VITE_BACKEND_URL}/api/products/${id}`, product);
       toast.success("Update product Successfully", {
         position: "bottom-right",
         autoClose: 4000,

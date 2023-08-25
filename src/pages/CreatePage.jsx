@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { VITE_BACKEND_URL } from "../main";
 
 const CreatePage = () => {
   const [name, setName] = useState("");
@@ -20,7 +21,7 @@ const CreatePage = () => {
 
     try {
       setIsLoading(true);
-      const response = await axios.post("http://localhost:3000/api/products", {
+      const response = await axios.post(`${VITE_BACKEND_URL}/api/products`, {
         name: name,
         price: price,
         quantity: quantity,

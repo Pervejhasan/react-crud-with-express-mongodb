@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { VITE_BACKEND_URL } from "../main";
 import Product from "./Product";
 
 const Products = () => {
@@ -9,7 +10,7 @@ const Products = () => {
   const getProducts = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get("http://localhost:3000/api/products");
+      const response = await axios.get(`${VITE_BACKEND_URL}/api/products`);
       setProducts(response.data);
       console.log(response.data);
     } catch (error) {
